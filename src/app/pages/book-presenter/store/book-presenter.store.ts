@@ -1,4 +1,4 @@
-import { patchState, signalStore, withComputed, withMethods, withState } from '@ngrx/signals';
+import { patchState, signalMethod, signalStore, withComputed, withMethods, withState } from '@ngrx/signals';
 import { initialBookPresenterSlice } from './book-presenter.slice';
 import { computed } from '@angular/core';
 import { BOOKS_COLLECTION } from '../../../data/books-collection';
@@ -9,8 +9,6 @@ export const BookPresenterStore = signalStore(
         book: computed(() => BOOKS_COLLECTION[store.id()])
     })),
     withMethods(store => ({
-        setBookId(id: number) {
-            patchState(store, { id });
-        }
+        setBookId: signalMethod<number>(id => patchState(store, { id }))
     }))
 )

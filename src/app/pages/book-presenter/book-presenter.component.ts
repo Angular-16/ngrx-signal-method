@@ -1,4 +1,4 @@
-import { Component, effect, inject, input, numberAttribute } from '@angular/core';
+import { Component, inject, input, numberAttribute } from '@angular/core';
 import { BookPresenterStore } from './store/book-presenter.store';
 import { Router } from '@angular/router';
 import { BOOKS_COLLECTION } from '../../data/books-collection';
@@ -24,6 +24,6 @@ export default class BookPresenterComponent {
   }
 
   constructor() {
-    effect(() => this.store.setBookId(this.id()));
+    this.store.setBookId(this.id);
   }
 }
