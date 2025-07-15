@@ -10,3 +10,11 @@
   <h2>{{ book.author }}</h2>
   <p>{{ book.description }}</p>
 </div>
+
+<div class="editor toolbar">
+  <input type="text" #name />
+  <button
+    type="button"
+    (click)="store.renameBook(name.value)"
+  >rename</button>
+</div>
